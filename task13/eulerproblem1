@@ -1,0 +1,35 @@
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <cstdio>
+
+
+using namespace std;
+int multiple(int a)
+     {
+         int s=0;
+       for(int i=0;i<a;i++)
+         {
+             if(i%3==0 || i%5==0 )
+               s=s+i;
+         }
+        return s;
+     }
+int main(){
+    int t,n;
+    cin >> t;
+    long long int k[100000];
+    for(int j = 0; j < t; j++){
+        scanf("%d",&n);
+         k[j] = multiple(n);
+    }
+    for(int i=0;i<t;i++)
+     printf("%d\n",k[i]);
+
+    return 0;
+}
+   
+

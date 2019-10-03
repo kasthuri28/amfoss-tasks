@@ -1,0 +1,69 @@
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+
+using namespace std;
+int isprime(int b)
+{   int c=0;
+    for(int i=1;i<=b;i++)
+     {
+         if(b%i==0)
+           c++;
+     }
+   if(c==2)
+       return 1;
+    else 
+       return 0;
+}
+int highfactor(int a)
+{
+    int m=0,l;
+    for(int j=1;j<=a;j++)
+     {
+         if(a%j==0)
+          { 
+              l=isprime(j);
+              if(l==1)
+               {
+                 if(m<j)
+                 m=j;
+               }
+          }
+
+     }
+     return m;
+}
+int main()
+{
+    long int n,t,k[1000000];
+    cin>>t;
+    for(int i=0;i<t;i++)
+     {
+      cin>>n;
+      k[i] =highfactor(n);
+     }
+    for(int j=0;j<t;j++)
+      {
+          cout<<k[j]<<endl;
+      }
+ return 0;
+}
