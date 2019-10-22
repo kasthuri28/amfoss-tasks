@@ -1,0 +1,96 @@
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+
+using namespace std;
+int ispalin(int a)
+{
+    long int b;
+    int c,d=0;
+    b=a;
+    while(a>0)
+     {
+      c=a%10;
+      d=d*10+c;
+      a=a/10;
+     }
+    if(b==d)
+     return 1;
+    else
+     return 0;
+}
+int isproduct(int u)
+ { 
+   int m=0;
+   for (int i=100;i<=999;i++)
+    {
+        for(int j=100;j<=999;j++)
+         {
+           if(i*j==u)
+            {
+                m=1;
+                break;
+            }
+         }
+    }
+    if(m==1)
+         return 1;
+    else
+         return 0;
+     
+    
+ }
+
+
+int main()
+{
+    long long int k[100];
+    int t,l,m;
+    cin >> t;
+    for(int i = 0; i < t; i++)
+    {
+        long int n;
+        cin >> n;
+        if((n>101101) && (n<1000000))
+         {  
+           while(n>0)
+            {
+             l=ispalin(n);
+             if(l==1)
+                {
+                 m=isproduct(n);
+                 if(m==1)
+                   break;
+                }
+              n=n-1;
+            }
+        }
+        else 
+          break;
+        k[i]=n;
+    }
+    for(int s=0;s<t;s++)
+     {
+         cout<<k[s]<<endl;
+     }
+    return 0;
+}
