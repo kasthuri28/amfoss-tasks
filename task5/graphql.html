@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>GITHUB</h1>
+USERNAME<input type="text" name="login" id="login" />
+<button onclick= "query_input()">search</button>
+<p>Press F12 to see the results</p>
+<p id="demo"</p>
+</body>
+<script>
+function query_input()
+ {
+  var login = document.getElementById("login").innerHTML;
+  var query = query{
+                   repositoryOwner($login:String!) {
+                   ... on login {
+                   pinnedRepositories(first: 6) {
+                   edges, {
+                   node {
+                   name,
+                   bio,
+                   avatarurl
+              }
+           }
+         }
+      }
+    }
+  }
+const url='https://api.github.com/graphql'
+
+fetch(url, {
+  method: 'POST',     }    }
+ 
+  
+  headers:{
+    "Content-Type: application/json"
+    "Authorization : bearer api-token"
+    "Accept:application/json"
+    
+  },
+     body: JSON.stringify({
+           query,
+           variables: { login },
+         
+    })
+document.getElementById("demo").innerHTML=query
+
+ 
+}).then(res => res.json())
+  .then(data => {
+    console.log(data)
+             
+}
+)
+.catch(function(err){
+  alert("not found")
+};
+
+</script>
+</html>
+              
