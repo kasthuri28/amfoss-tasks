@@ -1,34 +1,61 @@
 <!DOCTYPE html>
 <html>
-<title>Web Page Design</title>
-<head>
-</head>  
-<body style="background-color:powderblue;">
-<h1 style="color:red;">GitHub</h1>
- <div class="topnav">
-  <a class="active" href="#github">github account</a>
-  <a href="#username">username</a>
-  <input type="text" placeholder="Search..">
-</div>
+<body>
+<h1>GITHUB</h1>
+USERNAME<input type="text" name="login" id="login" />
+<button onclick= "query_input()">search</button>
+<p>Press F12 to see the results</p>
+<p id="demo"</p>
 </body>
 <script>
+function query_input()
+ {
+  var login = document.getElementById("login").innerHTML;
+  var query = query{
+                   repositoryOwner($login:String!) {
+                   ... on login {
+                   pinnedRepositories(first: 6) {
+                   edges, {
+                   node {
+                   name,
+                   bio,
+                   avatarurl
+              }
+           }
+         }
+      }
+    }
+  }
 const url='https://api.github.com/graphql'
 
 fetch(url, {
-  method: 'POST', 
+  method: 'POST',     }    }
  
   
   headers:{
     "Content-Type: application/json"
-    "authorization : bearer 5f43622bdb771e02c564300be5ae5174f5335b3f"
+    "Authorization : bearer 5f43622bdb771e02c564300be5ae5174f5335b3f"
+    "Accept:application/json"
     
-    
-  }
- body: JSON.stringify(data), 
+  },
+     body: JSON.stringify({
+           query,
+           variables: { login },
+         
+    })
+document.getElementById("demo").innerHTML=query
+
  
 }).then(res => res.json())
-.then(response => console.log('Success:', JSON.stringify(response)))
-.catch(error => console.error('Error:', error));
-</script>
+  .then(data => {
+    console.log(data)
+             
+}
+)
+.catch(function(err){
+  alert("not found")
+};
 
+</script>
 </html>
+              
