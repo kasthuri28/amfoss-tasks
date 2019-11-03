@@ -34,7 +34,7 @@ fetch(url, {
   
   headers:{
     "Content-Type: application/json"
-    "Authorization : bearer 5f43622bdb771e02c564300be5ae5174f5335b3f"
+    "Authorization : bearer api-token"
     "Accept:application/json"
     
   },
